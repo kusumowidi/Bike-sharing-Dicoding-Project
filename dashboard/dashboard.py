@@ -5,7 +5,7 @@ import seaborn as sns
 import numpy as np
 
 # Load data
-day_df = pd.read_csv("/content/day.csv")
+day_df = pd.read_csv("dashboard/day.csv")
 
 # Title of the dashboard
 st.title('Bike Rental Analysis')
