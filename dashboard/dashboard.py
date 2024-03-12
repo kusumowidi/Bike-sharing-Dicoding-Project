@@ -1,18 +1,18 @@
 import streamlit as st
-import pandas as pd
 import numpy as np
-import seaborn as sns
+import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Load data
-day_df = pd.read_csv("dashboard/day.csv")
+day_df = pd.read_csv("/content/day.csv")
 
 # Data Wrangling
-# Membersihkan data dengan menghapus kolom yang tidak diperlukan
+# Drop unnecessary columns
 drop_col = ['instant', 'windspeed']
 day_df.drop(labels=drop_col, axis=1, inplace=True)
 
-# Mengubah nama kolom untuk kejelasan
+# Rename columns
 day_df.rename(columns={
     'dteday': 'dateday',
     'yr': 'year',
@@ -21,7 +21,7 @@ day_df.rename(columns={
     'cnt': 'count'
 }, inplace=True)
 
-# Mengubah angka menjadi keterangan untuk kolom-kolom tertentu
+# Map numeric values to categorical values
 day_df['month'] = day_df['month'].map({
     1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun',
     7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec'
@@ -39,7 +39,7 @@ day_df['weather_cond'] = day_df['weather_cond'].map({
     4: 'Severe Weather'
 })
 
-# Mengubah tipe data kolom tertentu
+# Convert data types
 day_df['dateday'] = pd.to_datetime(day_df.dateday)
 day_df['season'] = day_df.season.astype('category')
 day_df['year'] = day_df.year.astype('category')
@@ -49,50 +49,51 @@ day_df['weekday'] = day_df.weekday.astype('category')
 day_df['workingday'] = day_df.workingday.astype('category')
 day_df['weather_cond'] = day_df.weather_cond.astype('category')
 
-# Data Exploration
-# Menampilkan ringkasan statistik
-st.title('Analisis Data Sewa Sepeda')
-st.write("## Ringkasan Statistik")
-st.write(day_df.describe().T)  # Transpose the summary statistics DataFrame for better display
+# Streamlit App
+st.title('Bike Rental Dashboard')
 
-# Heatmap Korelasi
-st.write("## Heatmap Korelasi")
+# Display summary statistics
+st.write("## Summary Statistics")
+st.write(day_df.describe())
+
+# Correlation Heatmap
+st.write("## Correlation Heatmap")
 fig, ax = plt.subplots(figsize=(10, 8))
 correlation_matrix = day_df.corr()
 sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", ax=ax)
 st.pyplot(fig)
 
-# Penyewaan Sepeda vs. Hari Kerja dan Hari Libur
-st.write("## Penyewaan Sepeda: Hari Kerja vs Hari Libur")
+# Bike Rentals: Working Day vs Holiday
+st.write("## Bike Rentals: Working Day vs Holiday")
 fig, ax = plt.subplots(figsize=(10, 6))
 sns.boxplot(data=day_df, x='workingday', y='count', hue='holiday', ax=ax)
-plt.xlabel('Hari Kerja')
-plt.ylabel('Total Penyewaan Sepeda')
-plt.xticks(ticks=[0, 1], labels=['Hari Libur', 'Hari Kerja'])
-plt.legend(title='Libur', labels=['Tidak', 'Ya'])
+plt.xlabel('Working Day')
+plt.ylabel('Total Bike Rentals')
+plt.xticks(ticks=[0, 1], labels=['Non-Working Day', 'Working Day'])
+plt.legend(title='Holiday', labels=['No', 'Yes'])
 st.pyplot(fig)
 
-# Efek Cuaca terhadap Penyewaan Sepeda
-st.write("## Efek Cuaca terhadap Penyewaan Sepeda")
+# Effect of Weather on Bike Rentals
+st.write("## Effect of Weather on Bike Rentals")
 fig, ax = plt.subplots(figsize=(10, 6))
 sns.boxplot(data=day_df, x='weather_cond', y='count', ax=ax)
-plt.xlabel('Kondisi Cuaca')
-plt.ylabel('Total Penyewaan Sepeda')
+plt.xlabel('Weather Condition')
+plt.ylabel('Total Bike Rentals')
 plt.xticks(rotation=45)
 st.pyplot(fig)
 
-# Perbandingan Penyewaan Sepeda: Semua Musim
-st.write("## Perbandingan Penyewaan Sepeda: Semua Musim")
+# Comparison of Bike Rentals: All Seasons
+st.write("## Comparison of Bike Rentals: All Seasons")
 fig, ax = plt.subplots(figsize=(10, 6))
 sns.boxplot(data=day_df, x='season', y='count', ax=ax)
-plt.xlabel('Musim')
-plt.ylabel('Total Penyewaan Sepeda')
+plt.xlabel('Season')
+plt.ylabel('Total Bike Rentals')
 st.pyplot(fig)
 
-# Jumlah Penyewaan Sepeda Harian Selama Dua Tahun
-st.write("## Jumlah Penyewaan Sepeda Harian Selama Dua Tahun")
+# Daily Bike Rental Counts Over Two Years
+st.write("## Daily Bike Rental Counts Over Two Years")
 fig, ax = plt.subplots(figsize=(12, 6))
 sns.lineplot(data=day_df, x='dateday', y='count', ax=ax)
-plt.xlabel('Tanggal')
-plt.ylabel('Jumlah Penyewaan Sepeda')
+plt.xlabel('Date')
+plt.ylabel('Count of Bike Rentals')
 st.pyplot(fig)
