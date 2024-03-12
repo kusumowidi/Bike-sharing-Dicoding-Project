@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load data
-@st.cache
+
 def load_data():
     day_df = pd.read_csv("dashboard/day.csv")
     return day_df
