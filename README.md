@@ -15,7 +15,6 @@ This project is a data analysis and visualization project focused on The analysi
 - `dashboard/`: This directory contains dashboard.py which is used to create dashboards of data analysis results.
 - `data/`: Directory containing the raw CSV data files.
 - `Proyek_Analisis_Data_Bike_Sharing.ipynb/`: This file is used to perform data analysis.
-- `requirements.txt/`: This file lists all the modules needed.
 - `README.md`: This documentation file.
 
 ## Installation
@@ -39,17 +38,17 @@ pip install -r requirements.txt
 - Data cleaning involves dropping unnecessary columns and renaming columns for better understanding. Additionally, some numerical values are mapped to categorical labels.
 - Data types are converted to appropriate types like datetime and categorical.
 
-3. **Exploratory Data Analysis (EDA)**: 
+2. **Exploratory Data Analysis (EDA)**: 
 - Grouping and aggregation operations are performed to understand patterns based on different features like month, weather condition, holiday, weekday, working day, and season.
 - Correlation heatmap is plotted to visualize relationships between numerical features.
 
-5. **Visualization**: Run the Streamlit dashboard for interactive data exploration:
+3. **Visualization**: Run the Streamlit dashboard for interactive data exploration:
 
 ```
 cd Proyek_Analisis_Data.ipynb/dashboard
 streamlit run dashboard.py
 ```
-Access the dashboard in your web browser at `https://mnaufalladicoding1.streamlit.app`.
+Access the dashboard in your web browser at `https://bike-sharing-dicoding-project-2b9sslxkqipdyb8mjemffq.streamlit.app/`.
 
 ## Data Sources
 The project uses Air Quality Dataset from [Belajar Analisis Data dengan Python's Final Project](https://drive.google.com/file/d/1RaBmV6Q6FYWU4HWZs80Suqd7KQC34diQ/view?usp=sharing) offered by [Dicoding](https://www.dicoding.com/).
