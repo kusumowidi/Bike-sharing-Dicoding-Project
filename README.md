@@ -1,7 +1,5 @@
-# Bike-sharing-Dicoding-Project
-
-# Air Quality Data Analysis with Python - Dicoding Submission
-[Air Quality Data Dashboard Streamlit App](https://mnaufalladicoding1.streamlit.app) <img src="https://user-images.githubusercontent.com/7164864/217935870-c0bc60a3-6fc0-4047-b011-7b4c59488c91.png" alt="Streamlit logo"></img>
+# Bike Sharing Data Analysis with Python - Dicoding Submission
+[Bike Sharing Data Dashboard Streamlit App](https://bike-sharing-dicoding-project-2b9sslxkqipdyb8mjemffq.streamlit.app/)
 
 ## Table of Contents
 - [Overview](#overview)
@@ -16,9 +14,8 @@ This project is a data analysis and visualization project focused on The analysi
 ## Project Structure
 - `dashboard/`: This directory contains dashboard.py which is used to create dashboards of data analysis results.
 - `data/`: Directory containing the raw CSV data files.
-- `Proyek_Analisis_Data.ipynb/`: This file is used to perform data analysis.
+- `Proyek_Analisis_Data_Bike_Sharing.ipynb/`: This file is used to perform data analysis.
 - `requirements.txt/`: This file lists all the modules needed.
-- `url.txt/`: This file contain the streamlit dashboard url.
 - `README.md`: This documentation file.
 
 ## Installation
@@ -55,4 +52,4 @@ streamlit run dashboard.py
 Access the dashboard in your web browser at `https://mnaufalladicoding1.streamlit.app`.
 
 ## Data Sources
-The project uses Air Quality Dataset from [Belajar Analisis Data dengan Python's Final Project](https://drive.google.com/drive/folders/1ZHrg-qiun_CfsKgl3jmgGT49286Ko28/view) offered by [Dicoding](https://www.dicoding.com/).
+The project uses Air Quality Dataset from [Belajar Analisis Data dengan Python's Final Project](https://drive.google.com/file/d/1RaBmV6Q6FYWU4HWZs80Suqd7KQC34diQ/view?usp=sharing) offered by [Dicoding](https://www.dicoding.com/).
