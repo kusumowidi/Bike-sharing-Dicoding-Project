@@ -53,7 +53,7 @@ day_df['weather_cond'] = day_df.weather_cond.astype('category')
 # Menampilkan ringkasan statistik
 st.title('Analisis Data Sewa Sepeda')
 st.write("## Ringkasan Statistik")
-st.write(day_df.describe())
+st.write(day_df.describe().T)  # Transpose the summary statistics DataFrame for better display
 
 # Heatmap Korelasi
 st.write("## Heatmap Korelasi")
