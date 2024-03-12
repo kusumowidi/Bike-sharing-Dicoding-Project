@@ -5,7 +5,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Load data
-day_df = pd.read_csv("/content/day.csv")
+day_df = pd.read_csv("dashboard/day.csv")
 
 # Data Wrangling
 # Membersihkan data dengan menghapus kolom yang tidak diperlukan
