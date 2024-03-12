@@ -54,7 +54,7 @@ st.title('Bike Rental Dashboard')
 
 # Display summary statistics
 st.write("## Summary Statistics")
-st.write(day_df.describe())
+st.table(day_df.describe())
 
 # Correlation Heatmap
 st.write("## Correlation Heatmap")
