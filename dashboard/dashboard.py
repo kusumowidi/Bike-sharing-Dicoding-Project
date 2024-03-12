@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load data
-day_df = pd.read_csv("/content/day.csv")
+day_df = pd.read_csv("dashboard/day.csv")
 
 # Data Wrangling
 # Drop unnecessary columns
