@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load data
+@st.cache(allow_output_mutation=True)
 def load_data():
     day_url = 'https://raw.githubusercontent.com/kusumowidi/Bike-sharing-Dicoding-Project/main/data/day.csv'
     day_df = pd.read_csv(day_url)
