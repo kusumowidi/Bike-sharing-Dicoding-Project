@@ -1,5 +1,5 @@
 # Bike Sharing Data Analysis with Python - Dicoding Submission
-[Bike Sharing Data Dashboard Streamlit App](https://bike-sharing-dicoding-project-2b9sslxkqipdyb8mjemffq.streamlit.app/)
+[Bike Sharing Data Dashboard Streamlit App](https://bike-sharing-dicoding-project-nibultfzlbuv84vgqvrbkw.streamlit.app/)
 
 ## Table of Contents
 - [Overview](#overview)
@@ -48,7 +48,7 @@ pip install -r requirements.txt
 cd Proyek_Analisis_Data.ipynb/dashboard
 streamlit run dashboard.py
 ```
-Access the dashboard in your web browser at `https://bike-sharing-dicoding-project-2b9sslxkqipdyb8mjemffq.streamlit.app/`.
+Access the dashboard in your web browser at `https://bike-sharing-dicoding-project-nibultfzlbuv84vgqvrbkw.streamlit.app/`.
 
 ## Data Sources
 The project uses Air Quality Dataset from [Belajar Analisis Data dengan Python's Final Project](https://drive.google.com/file/d/1RaBmV6Q6FYWU4HWZs80Suqd7KQC34diQ/view?usp=sharing) offered by [Dicoding](https://www.dicoding.com/).
