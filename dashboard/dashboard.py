@@ -75,7 +75,7 @@ else:
 
     # Summary Statistics
     st.subheader('Summary Statistics')
-    st.write(day_df.describe())
+    st.text(day_df.describe().to_string())
 
     # Correlation Heatmap
     st.subheader('Correlation Heatmap')
