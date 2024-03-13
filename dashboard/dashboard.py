@@ -63,6 +63,10 @@ else:
     day_df['workingday'] = day_df['workingday'].astype('category')
     day_df['weather_cond'] = day_df['weather_cond'].astype('category')
 
+    # Convert categorical columns to numerical for correlation calculation
+    cat_columns = day_df.select_dtypes(['category']).columns
+    day_df[cat_columns] = day_df[cat_columns].apply(lambda x: x.cat.codes)
+
     # Dashboard
     st.title('Bike Rental Data Analysis Dashboard')
 
