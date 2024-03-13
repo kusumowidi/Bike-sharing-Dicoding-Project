@@ -131,8 +131,13 @@ else:
     # Line Plot: Daily Bike Rental Counts Over Two Years
     st.subheader('Daily Bike Rental Counts Over Two Years')
     fig, ax = plt.subplots(figsize=(12, 6))
-    sns.lineplot(data=day_df, x='dateday', y='count', ax=ax)
+
+    # Set pandas option to handle infinite values
+    with pd.option_context('mode.use_inf_as_null', True):
+        sns.lineplot(data=day_df, x='dateday', y='count', ax=ax)
+
     ax.set_title('Daily Bike Rental Counts Over Two Years')
     ax.set_xlabel('Date')
     ax.set_ylabel('Count of Bike Rentals')
     st.pyplot(fig)
+
