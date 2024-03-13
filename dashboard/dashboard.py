@@ -7,7 +7,7 @@ import seaborn as sns
 # Load data
 
 def load_data():
-    day_df = pd.read_csv("dashboard/day.csv")
+    day_df = pd.read_csv("day.csv")
     return day_df
 
 day_df = load_data()
