@@ -6,8 +6,10 @@ import seaborn as sns
 
 # Load data
 
+@st.cache_data(hash_funcs={types.FunctionType: id})
 def load_data():
-    day_df = pd.read_csv("/data/day.csv")
+    day_url = 'https://raw.githubusercontent.com/kusumowidi/Bike-sharing-Dicoding-Project/main/data/day.csv'
+    day_df = pd.read_csv(day_url)
     return day_df
 
 day_df = load_data()
