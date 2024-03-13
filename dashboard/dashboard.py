@@ -83,17 +83,18 @@ else:
 
     # Correlation Heatmap
     st.subheader('Correlation Heatmap')
-    fig, ax = plt.subplots(figsize=(10,6))
-    correlation_matrix = day_df.corr()
-    sns.heatmap(
-        correlation_matrix,
-        annot=True,
-        cmap="coolwarm",
-        center=0,
-        fmt=".2f",
-        ax=ax
-    )
-    st.pyplot(fig)
+    with pd.option_context('mode.use_inf_as_null', True):
+        fig, ax = plt.subplots(figsize=(10,6))
+        correlation_matrix = day_df.corr()
+        sns.heatmap(
+            correlation_matrix,
+            annot=True,
+            cmap="coolwarm",
+            center=0,
+            fmt=".2f",
+            ax=ax
+        )
+        st.pyplot(fig)
 
     # Data Visualization Section
     st.header('Data Visualization')
