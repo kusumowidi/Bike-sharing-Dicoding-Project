@@ -3,7 +3,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+# Set the option explicitly before plotting
+pd.set_option('mode.use_inf_as_null', True)
 # Load data
 def load_data():
     day_url = 'https://raw.githubusercontent.com/kusumowidi/Bike-sharing-Dicoding-Project/main/data/day.csv'
