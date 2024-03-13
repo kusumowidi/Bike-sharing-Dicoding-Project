@@ -131,13 +131,17 @@ else:
     # Line Plot: Daily Bike Rental Counts Over Two Years
     st.subheader('Daily Bike Rental Counts Over Two Years')
     fig, ax = plt.subplots(figsize=(12, 6))
-
-    # Set pandas option to handle infinite values
-    with pd.option_context('mode.use_inf_as_null', True):
-        sns.lineplot(data=day_df, x='dateday', y='count', ax=ax)
-
+    
+    # Remove infinite values from 'count' column
+    day_df.replace([np.inf, -np.inf], np.nan, inplace=True)
+    day_df.dropna(subset=['count'], inplace=True)
+    
+    # Plot lineplot without infinite values
+    sns.lineplot(data=day_df, x='dateday', y='count', ax=ax)
+    
     ax.set_title('Daily Bike Rental Counts Over Two Years')
     ax.set_xlabel('Date')
     ax.set_ylabel('Count of Bike Rentals')
     st.pyplot(fig)
+
 
